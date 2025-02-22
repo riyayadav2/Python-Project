@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title>New User</title>
+        <h1>ADD NEW USER</h1>
+        <link rel="stylesheet" href="../static/base.css">
+    </head>
+    <body>
+        <h1>ADD NEW USER</h1>
+    <div class="header"></div>
+    <form action="/user",method="POST"></form>
+        <header>
+            <a href="/index" class="logo"><h1>PIZZERIA</h1></a>
+            <ul class ="menu">
+                <li><a href="#home">Home</a></li>
+                <li><a>Menu</a></li>
+                <li><a>Deals</a></li>
+                <li><a href="#work">About Us</a></li>
+            </ul>
+            <h3>Welcome {{ firstname }}</h3>
+        </header>
+        <div class="form-container">
+            <h1>Add New User</h1>
+
+            <form action="{{ url_for('user', user_id=user[0]  if user else 0) }}" method="post">
+           
+            <div class="form-group">
+                <label for="first_name">First Name:</label>
+                <input type="text" id="first_name" name="first_name"value="{{ user[1] }}" placeholder="Enter first name" required>
+            </div>
+            <div class="form-group">
+                <label for="last_name">Last Name:</label>
+                <input type="text" id="last_name" name="last_name" value="{{ user[2] }}"placeholder="Enter last name" required>
+            </div>
+            <div class="form-group">
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location"value="{{ user[3] }}" placeholder="Enter location" required>
+            </div>
+         <div class="form-group">
+         <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone"value="{{ user[4] }}" placeholder="Enter phone number" pattern="[0-9]{10}" required>
+            </div>
+        <a href="/retrieve" ><button type="submit">Add User</button></a>
+            </form></form>
+            <a href="/retrieve" class="back-link">Back to Welcome Page</a>
+    </div>
+        </body></html>

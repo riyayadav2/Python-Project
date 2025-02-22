@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>Login Page</title>
+        <link rel="stylesheet" href="../static/base.css">
+    </head>
+    <body>
+        <div id="header"></div>
+        <header>
+            <a href="/index" class="logo"><h1>PIZZERIA</h1></a>
+            <ul class ="menu">
+                <li><a href="#home">Home</a></li>
+                <li><a>Menu</a></li>
+                <li><a>Deals</a></li>
+                <li><a href="#work">About Us</a></li>
+            </ul>
+        </header>
+        <section>
+            <div class="login">
+             <h3>Enter your login credentials</h3>
+             <form action="/login" method="POST">
+                    <label for="first">Username:</label>
+                    <input type="text" name="username" placeholder="Enter your Username" required>
+        <label for="password">Password:</label>
+                    <input type="password" name="password" placeholder="Enter your Password" required>
+        
+                    <div class="wrap">
+                        <button type="submit">Submit</button> 
+                        <p>Not registered?
+                        <a href="/registration"> Create an account</a>
+                            </p>
+                    </div>
+                </section>
+                </form>
+                </body>
+</html>

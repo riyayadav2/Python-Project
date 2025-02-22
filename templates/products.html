@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>Product Page</title>
+        <link rel="stylesheet" href="../static/base.css">
+    </head>
+    <body>
+    <header>
+            <a href="/index" class="logo"><h1>PIZZERIA</h1></a>
+            <ul class ="menu">
+                <li><a href="#home">Home</a></li>
+                <li><a>Menu</a></li>
+                <li><a>Deals</a></li>
+                <li><a href="#work">About Us</a></li>
+            </ul>
+            <h3>Welcome {{ firstname }}</h3>
+            <h3></h3>
+        </header> 
+        <br>
+        <p>     </p>
+        <p>     </p>
+        <a href="{{ url_for('newproducts', user_id=0) }}" class="button"><h2>
+        <b>Products In Excel</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        </b>
+        <a href="{{ url_for('csvproducts', user_id=0) }}" class="button"><b>Products in CSV</a></b><br>
+        <a href="{{ url_for('newcsv')}}" class="button">Add Products</b></h2></a>
+    <body>
+        <div class="products">
+    <p>              </p>
+    <table border="1" width="90%">
+    <h1>Products called by API</h1>
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for post in posts %}
+            <tr>
+                <td>{{ post.id }}</td>
+                <td>{{ post.title }}</td>
+                <td>{{ post.price}}</td>
+                <td>{{post.description}}</td>
+                <td>{{post.category}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+        </div>
+        </body>
+        </html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/base.css">
+    <title>Add CSV</title>
+</head>
+<body>
+    <div id="header"></div>
+        <header>
+            <a href="/index" class="logo"><h1>PIZZERIA</h1></a>
+            <ul class ="menu">
+                <li><a href="#home">Home</a></li>
+                <li><a>Menu</a></li>
+                <li><a>Deals</a></li>
+                <li><a href="#work">About Us</a></li>
+            </ul>
+        </header>
+    <div class="registration">
+        &nbsp;
+    <h2>Registration Page</h2>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <ul class="flashes"
+            {% for category, message in messages %}
+                <li class="{{category}}">{{ message }}</li>
+            {% endfor %}
+    </ul>
+        {% endif %}
+    {% endwith %}
+    <form method="POST">
+        <label>Product:</label>
+        <input type="text" id="product_name" name="product_name"placeholder="Enter Product Name"required >
+        <label>Price:</label>
+        <input type="text" id="price" name="price"placeholder="Enter Price"required >
+        <label>Quantity:</label>
+        <input type="text" id="quantity" name="quantity"placeholder="Enter quantity">
+        <button type="submit" formaction="/addcsv">Add to CSV</button><br>
+        <button type="submit" formaction="/addexcel">Add In Excel</button>
+        <a href="/" class="back-link">Back to Login Page</a>
+    </form>
+    </div>
+</body>
+</html>

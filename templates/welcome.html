@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>Welcome Page</title>
+        <link rel="stylesheet" href="../static/base.css">
+    </head>
+    <body>
+    <div class="welcome"></div>
+        <form action="/welcome" method="POST">
+        <header>
+            <a href="/index" class="logo"><h1>PIZZERIA</h1></a>
+            <ul class ="menu">
+                <li><a href="#home">Home</a></li>
+                <li><a>Menu</a></li>
+                <li><a>Deals</a></li>
+                <li><a href="#work">About Us</a></li>
+            </ul>
+            <h3>Welcome {{ firstname }}</h3>
+            <h3></h3>
+        </header>
+        <a href="{{ url_for('loadproducts', user_id=0) }}" class="button"><h2><b>&nbsp;<br>
+            &nbsp;<br>
+            Products</b></h2></a><br>
+         <a href="{{ url_for('newuser', user_id=0) }}" class="button"><h2><b>Add New User</b></h2></a><br>
+         <!--<a href="{{ url_for('loadproducts', user_id=0) }}" class="button" style="float: left;"><h2><b>Products</b></h2></a><br>-->
+         <!--<a href="{{ url_for('newproducts', user_id=0) }}" class="button"><h2><b>Products In Excel</b></h2></a><br>
+         <a href="{{ url_for('csvproducts', user_id=0) }}" class="button"><h2><b>Products in CSV</b></h2></a><br-->
+    </form action="/retrieve" method="POST">
+        <table border="3">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Location</th>
+                        <th>Phone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in student %}
+                    <tr>
+                        <td>{{ user[0] }}</td>
+                        <td>{{ user[1] }}</td>
+                        <td>{{ user[2] }}</td>
+                        <td>{{ user[3] }}</td>
+                        <td>{{ user[4] }}</td>
+                        <td>
+                            <form action="{{ url_for('edit_user', user_id=user[0]) }}" method="post" style="display: inline;">
+                                <button type="submit"  >Edit</button></form>
+                        </td>
+                        <td>
+                            <form action="{{ url_for('delete_user', user_id=user[0]) }}" method="post" style="display: inline;">
+                            <button type="submit"  >Delete</button></form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </body>
+        </html>
